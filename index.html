@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grammar Correction System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Grammar Correction System</h1>
+
+        <p class="subtitle">
+            Enter a sentence and get a corrected version.
+        </p>
+
+        <form method="POST">
+
+            <label for="text">Enter Your Text</label>
+
+            <textarea
+                id="text"
+                name="text"
+                placeholder="Example: he go to school"
+                required>{{ original }}</textarea>
+
+            <button type="submit">
+                Correct Grammar
+            </button>
+
+        </form>
+
+        {% if corrected %}
+
+        <div class="result">
+
+            <h2>Corrected Text</h2>
+
+            <p>{{ corrected }}</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
